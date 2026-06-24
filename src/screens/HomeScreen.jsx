@@ -90,7 +90,7 @@ const HomeScreen = ({ navigation }) => {
                   <View style={styles.dotIndicator} />
                   <Text style={styles.locationLabel}>Latitude</Text>
                 </View>
-                <Text style={styles.locationValue}></Text>
+                <Text style={styles.locationValue}>1768</Text>
               </View>
 
               <View style={styles.divider} />
@@ -100,7 +100,7 @@ const HomeScreen = ({ navigation }) => {
                   <View style={styles.dotIndicator} />
                   <Text style={styles.locationLabel}>Longitude</Text>
                 </View>
-                <Text style={styles.locationValue}></Text>
+                <Text style={styles.locationValue}>9898</Text>
               </View>
             </View>
 
@@ -114,9 +114,7 @@ const HomeScreen = ({ navigation }) => {
           </LinearGradient>
         </View>
 
-        {/* Buttons - Premium Style */}
         <View style={styles.buttonsContainer}>
-          {/* Button 1 - Get Location */}
           <Animated.View style={{ transform: [{ scale: scaleAnim }] }}>
             <TouchableOpacity
               onPressIn={handlePressIn}
@@ -139,7 +137,6 @@ const HomeScreen = ({ navigation }) => {
             </TouchableOpacity>
           </Animated.View>
 
-          {/* Button 2 - Open Map */}
           <TouchableOpacity
             onPressIn={handlePressIn}
             onPressOut={handlePressOut}
@@ -161,7 +158,6 @@ const HomeScreen = ({ navigation }) => {
             </LinearGradient>
           </TouchableOpacity>
 
-          {/* Button 3 - Notification */}
           <TouchableOpacity
             onPressIn={handlePressIn}
             onPressOut={handlePressOut}
@@ -345,7 +341,7 @@ const styles = StyleSheet.create({
   },
 
   locationContainer: {
-    backgroundColor: COLORS.primaryLight,
+    backgroundColor: COLORS.white,
     borderRadius: 16,
     padding: 18,
     marginBottom: 18,

@@ -1,17 +1,7 @@
-import {
-  StyleSheet,
-  Text,
-  View,
-  Animated,
-  Easing,
-  Image,
-  Dimensions,
-} from 'react-native';
+import { StyleSheet, Text, View, Animated, Easing, Image } from 'react-native';
 import React, { useEffect, useRef } from 'react';
 import LinearGradient from 'react-native-linear-gradient';
 import COLORS from '../constants/Colors';
-
-const { width, height } = Dimensions.get('window');
 
 const SplashScreen = ({ navigation }) => {
   const scaleAnim = useRef(new Animated.Value(0)).current;
@@ -123,7 +113,6 @@ const SplashScreen = ({ navigation }) => {
         </View>
       </Animated.View>
 
-      {/* Animated Text */}
       <Animated.View
         style={[
           styles.textContainer,
@@ -139,14 +128,12 @@ const SplashScreen = ({ navigation }) => {
         <Text style={styles.subtitle}>Your journey starts here</Text>
       </Animated.View>
 
-      {/* Premium Loading Indicator */}
       <View style={styles.dotsContainer}>
         <AnimatedDot delay={0} />
         <AnimatedDot delay={150} />
         <AnimatedDot delay={300} />
       </View>
 
-      {/* Bottom decoration */}
       <Animated.Text
         style={[
           styles.versionText,
@@ -310,7 +297,7 @@ const styles = StyleSheet.create({
     width: 12,
     height: 12,
     borderRadius: 6,
-    backgroundColor: COLORS.primary,
+    backgroundColor: COLORS.textSecondary,
     shadowColor: COLORS.primary,
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.3,
