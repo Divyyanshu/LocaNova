@@ -8,7 +8,6 @@ import {
   Platform,
   StatusBar,
   Image,
-  TextInput,
   Dimensions,
 } from 'react-native';
 import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps';
@@ -18,7 +17,7 @@ import COLORS from '../constants/Colors';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 const { width, height } = Dimensions.get('window');
-const API_KEY = 'AIzaSyBq4mftWSM9PiQUNl376pzHH6DMn2FK1Yg';
+const API_KEY = 'AIzaSyDAQQ_gtTyOOfqPiR7t7pdPw7drgUuggN8';
 
 const MapScreen = ({ navigation }) => {
   const [location, setLocation] = useState(null);
@@ -107,14 +106,13 @@ const MapScreen = ({ navigation }) => {
     <SafeAreaView style={styles.container}>
       <StatusBar backgroundColor={COLORS.primary} barStyle="dark-content" />
       <View style={styles.container}>
-        {/* Fixed Map Container - Centered */}
         <View style={styles.mapContainer}>
           <MapView
             provider={PROVIDER_GOOGLE}
             style={styles.map}
             region={region}
-            showsUserLocation={true}
-            showsMyLocationButton={false}
+            showsUserLocation={false}
+            showsMyLocationButton={true}
           >
             {markerLocation && (
               <Marker
@@ -124,8 +122,6 @@ const MapScreen = ({ navigation }) => {
               />
             )}
           </MapView>
-
-          {/* Back Button - Top Left */}
           <TouchableOpacity
             style={styles.backBtn}
             onPress={() => navigation.goBack()}
@@ -138,13 +134,11 @@ const MapScreen = ({ navigation }) => {
               tintColor="#000"
             />
           </TouchableOpacity>
-
-          {/* Search Bar */}
           <View style={styles.searchContainer}>
             <View style={styles.searchWrapper}>
               <GooglePlacesAutocomplete
                 ref={searchRef}
-                placeholder="Jagah dhundho..."
+                placeholder="Search for a place"
                 placeholderTextColor="#999"
                 fetchDetails={true}
                 debounce={400}
@@ -205,16 +199,15 @@ const MapScreen = ({ navigation }) => {
             onPress={getCurrentLocation}
             activeOpacity={0.8}
           >
-            <Text style={styles.locationBtnText}>📍 My Location</Text>
+            <Text style={styles.locationBtnText}>My Location</Text>
           </TouchableOpacity>
         </View>
 
-        {/* Bottom Details Panel */}
         <View style={styles.detailsPanel}>
           {markerLocation ? (
             <>
               <View style={styles.detailsRow}>
-                <Text style={styles.detailsLabel}>📍 Selected Location:</Text>
+                <Text style={styles.detailsLabel}>Selected Location:</Text>
                 <Text style={styles.detailsValue}>
                   {selectedPlace ||
                     `${markerLocation.latitude.toFixed(
