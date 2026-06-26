@@ -15,9 +15,10 @@ import Geolocation from '@react-native-community/geolocation';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import COLORS from '../constants/Colors';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { API_KEYS } from '../config/apiKeys';
 
 const { width, height } = Dimensions.get('window');
-const API_KEY = 'AIzaSyDAQQ_gtTyOOfqPiR7t7pdPw7drgUuggN8';
+const API_KEY = API_KEYS.GOOGLE_MAPS;
 
 const MapScreen = ({ navigation }) => {
   const [location, setLocation] = useState(null);
@@ -131,7 +132,6 @@ const MapScreen = ({ navigation }) => {
               source={require('../assets/images/back.png')}
               style={styles.imageIcons}
               resizeMode="contain"
-              tintColor="#000"
             />
           </TouchableOpacity>
           <View style={styles.searchContainer}>
@@ -193,7 +193,6 @@ const MapScreen = ({ navigation }) => {
             </View>
           </View>
 
-          {/* My Location Button */}
           <TouchableOpacity
             style={styles.locationBtn}
             onPress={getCurrentLocation}
@@ -225,7 +224,20 @@ const MapScreen = ({ navigation }) => {
                 </Text>
               </View>
 
-              <TouchableOpacity style={styles.confirmBtn}>
+              <TouchableOpacity
+                style={styles.confirmBtn}
+                onPress={() => {
+                  if (markerLocation) {
+                    navigation.navigate('Route', {
+                      endCoords: {
+                        latitude: markerLocation.latitude,
+                        longitude: markerLocation.longitude,
+                        name: selectedPlace || 'Destination',
+                      },
+                    });
+                  }
+                }}
+              >
                 <Text style={styles.confirmBtnText}>Confirm Location</Text>
               </TouchableOpacity>
             </>

@@ -1,26 +1,51 @@
 const COLORS = {
-  primary: '#FACC15',
-  primaryDark: '#EAB308',
-  primaryLight: '#FEF08A',
+  // Primary
+  primary: '#F4C430',        // Premium Gold Yellow
+  primaryDark: '#D4A017',
+  primaryLight: '#FFE082',
+
+  // Background Gradient
   gradientStart: '#FFFFFF',
-  gradientMiddle: '#F8F9FA',
-  gradientEnd: '#F0F1F5',
-  background: '#FFFDF5',
+  gradientMiddle: '#F8FAFC',
+  gradientEnd: '#EEF2F7',
+
+  // App Background
+  background: '#F8FAFC',
   card: '#FFFFFF',
-  textPrimary: '#1F2937',
-  textSecondary: '#6B7280',
-  textLight: '#9CA3AF',
+
+  // Text
+  textPrimary: '#0F172A',    // Deep Navy
+  textSecondary: '#475569',
+  textLight: '#94A3B8',
+
+  // Buttons
+  button: '#F4C430',
+  buttonText: '#0F172A',
+
+  // Accent Color (Premium Navy)
+  accent: '#1E3A8A',
+  accentLight: '#3B82F6',
+  accentDark: '#172554',
+
+  // Status
+  success: '#16A34A',
+  danger: '#DC2626',
+  warning: '#F59E0B',
+
+  // Borders & Shadows
+  border: '#E2E8F0',
+  shadow: '#0F172A20',
+
+  // Glow
+  glow: '#F4C430',
+
+  // Decorative Blobs
+  blobOne: '#F4C430',
+  blobTwo: '#1E3A8A',
+
+  // Common
   white: '#FFFFFF',
   black: '#000000',
-  button: '#FACC15',
-  buttonText: '#1F2937',
-  success: '#22C55E',
-  danger: '#EF4444',
-  border: '#F3F4F6',
-  shadow: '#00000020',
-  glow: '#FACC15',
-  blobOne: '#FACC15',
-  blobTwo: '#EAB308',
 };
 
 export default COLORS;

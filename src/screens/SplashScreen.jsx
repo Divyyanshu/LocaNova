@@ -7,11 +7,11 @@ import {
   Image,
   Platform,
   Dimensions,
-  SafeAreaView,
 } from 'react-native';
 import React, { useEffect, useRef } from 'react';
 import LinearGradient from 'react-native-linear-gradient';
 import COLORS from '../constants/Colors';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const { width, height } = Dimensions.get('window');
 const isIOS = Platform.OS === 'ios';
