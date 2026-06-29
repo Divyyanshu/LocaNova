@@ -27,7 +27,7 @@ RNGeocoding.init({
 });
 
 const { width } = Dimensions.get('window');
-const UNSPLASH_API_KEY = API_KEYS.UNSPLAH;
+const UNSPLASH_API_KEY = API_KEYS.UNSPLASH;
 
 const temperatureData = {
   labels: ['6AM', '9AM', '12PM', '3PM', '6PM', '9PM'],
@@ -84,8 +84,6 @@ const HomeScreen = ({ navigation }) => {
   const [accuracy, setAccuracy] = useState(null);
   const [loadingLocation, setLoadingLocation] = useState(true);
   const [locationError, setLocationError] = useState(null);
-
-  // Address states
   const [address, setAddress] = useState(null);
   const [city, setCity] = useState(null);
   const [state, setState] = useState(null);
@@ -93,8 +91,6 @@ const HomeScreen = ({ navigation }) => {
   const [postalCode, setPostalCode] = useState(null);
   const [street, setStreet] = useState(null);
   const [loadingAddress, setLoadingAddress] = useState(false);
-
-  // Photo states
   const [photos, setPhotos] = useState([]);
   const [loadingPhotos, setLoadingPhotos] = useState(false);
 
@@ -185,7 +181,7 @@ const HomeScreen = ({ navigation }) => {
       const response = await fetch(
         `https://api.unsplash.com/search/photos?query=${locationName}&per_page=8&order_by=popular&client_id=${UNSPLASH_API_KEY}`,
       );
-
+      console.log('Unsplash API response locationName:', locationName);
       const data = await response.json();
 
       if (data.results && data.results.length > 0) {
@@ -325,8 +321,6 @@ const HomeScreen = ({ navigation }) => {
       </View>
     </LinearGradient>
   );
-
-  // Info Cards in Grid
   const InfoGrid = () => (
     <View style={styles.gridContainer}>
       <LinearGradient colors={['#F5F7FA', '#FFFFFF']} style={styles.gridCard}>
@@ -546,8 +540,6 @@ const HomeScreen = ({ navigation }) => {
             </Text>
           </View>
         </LinearGradient>
-
-        {/* Main Card */}
         <View style={styles.mainCardWrapper}>
           {locationError ? (
             <LinearGradient
@@ -566,25 +558,17 @@ const HomeScreen = ({ navigation }) => {
             <MainLocationCard />
           )}
         </View>
-
-        {/* Info Grid */}
         <View style={styles.section}>
           <InfoGrid />
         </View>
-
-        {/* Charts */}
         <View style={styles.section}>
           <ChartsSection />
         </View>
-
-        {/* Photos */}
         {photos.length > 0 && (
           <View style={styles.section}>
             <PhotoGallery />
           </View>
         )}
-
-        {/* Action Buttons */}
         <View style={styles.buttonsSection}>
           <Animated.View style={{ transform: [{ scale: scaleAnim }], flex: 1 }}>
             <TouchableOpacity
@@ -682,10 +666,12 @@ const styles = StyleSheet.create({
   headerContent: {
     alignItems: 'center',
     backgroundColor: '#1E3A8A',
+    borderRadius: 30,
   },
   headerIconContainer: {
     width: 50,
     height: 50,
+    margin: 20,
     borderRadius: 12,
     backgroundColor: 'rgba(255,255,255,0.2)',
     justifyContent: 'center',
